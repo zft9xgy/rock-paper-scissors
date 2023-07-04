@@ -1,49 +1,30 @@
 /*
-Introducción de parametros
-playerSelection -> deberá ser rock, paper, scissors
-computerSelection -> auto
-*/
-
-// var playerSelection = prompt("Introduzca su eleccion:");
-// console.log("Antes de la validación:" + playerSelection);
-// playerSelection = validatePlayerSelection(playerSelection);
-// console.log("Después de la validación:" + playerSelection);
-
-// const computerSelection = getComputerChoice();
-// playRound(playerSelection, computerSelection);
-
-// function validatePlayerSelection(e) {
-//   return e.toLowerCase().trim();
-// }
-
-/*
-This function return 'Rock', 'Paper' or 'Scissors' randomly.
+This function return 'rock', 'paper' or 'scissors' randomly.
 */
 function getComputerChoice() {
 	const choice = Math.floor(Math.random() * 3); // return 0,1,2
 	switch (choice) {
 		case 0:
 			return "rock";
-			break;
 		case 1:
 			return "paper";
-			break;
 		case 2:
 			return "scissors";
-			break;
 		default:
 			break;
 	}
 }
 
 /* 
-Crear una funcion que juege una ronda
-Esta funcion acepta dos parametros playerSelection, computerSelection
-devuelve You win/lose + paper beat rock.
+This a function that plays a round
+This function accepts two parameters playerSelection, computerSelection
+return 'tie','win','lose'
 */
 function playRound(playerSelection, computerSelection) {
+	// Clean player selection. Validation is not done in this version.
 	playerSelection = playerSelection.toLowerCase().trim();
-	/* bool that us true is player win or false is lose*/
+
+	// boolean: is true if player win or false is player lose
 	const playerwin =
 		(playerSelection == "rock" && computerSelection == "scissors") ||
 		(playerSelection == "paper" && computerSelection == "rock") ||
@@ -66,19 +47,28 @@ function playRound(playerSelection, computerSelection) {
 	}
 }
 
+/* This function is used at the end of the game() to declare a winner. */
+function declareWinner(winner,playerScore) {
+	winner = playerScore == 5 ? "Player" : "Computer";
+	console.log(`***${winner} won this game.***`);
+}
+
+/*
+The plays end when player or computer score reach 5. 
+Declaration of variables inside the game function.
+*/
 function game() {
-	// se juega hasta que alguno de los dos jugadores llegue a 5
+
 	var playerScore = 0;
 	var computerScore = 0;
 	var stopGame = false;
 	var score = "tie";
-  var winner = "";
+	var winner = "";
 
 	do {
-		// pedir al jugador su opción
-		// play round
+		// Ask user for choice and play a round in the same sentence.
 		score = playRound(prompt("Introduzca su eleccion:"), getComputerChoice());
-		// actualizar score
+		// update score.
 		switch (score) {
 			case "win":
 				++playerScore;
@@ -89,16 +79,13 @@ function game() {
 			default:
 				break;
 		}
+		// game stop boolen when one player reach score 5.
 		stopGame = playerScore == 5 || computerScore == 5;
-		// comprobar score por si hay un ganador
-		// stopgame = true
-		// seguir con siguiente
+
+		// console results.
 		console.log("Player score: " + playerScore);
 		console.log("Computer score: " + computerScore);
 	} while (!stopGame);
 
-  winner = (playerScore == 5) ? 'Player' : 'Computer';
-
-  console.log(`***${winner} won this game.***`);
-
+	declareWinner(winner,playerScore);
 }
