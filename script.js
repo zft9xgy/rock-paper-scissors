@@ -20,9 +20,10 @@ This a function that plays a round
 This function accepts two parameters playerSelection, computerSelection
 return 'tie','win','lose'
 */
-function playRound(playerSelection, computerSelection) {
+function playRound(playerSelection) {
 	// Clean player selection. Validation is not done in this version.
 	playerSelection = playerSelection.toLowerCase().trim();
+	const computerSelection = getComputerChoice();
 
 	// boolean: is true if player win or false is player lose
 	const playerwin =
@@ -48,7 +49,7 @@ function playRound(playerSelection, computerSelection) {
 }
 
 /* This function is used at the end of the game() to declare a winner. */
-function declareWinner(winner,playerScore) {
+function declareWinner(winner, playerScore) {
 	winner = playerScore == 5 ? "Player" : "Computer";
 	console.log(`***${winner} won this game.***`);
 }
@@ -58,7 +59,6 @@ The plays end when player or computer score reach 5.
 Declaration of variables inside the game function.
 */
 function game() {
-
 	var playerScore = 0;
 	var computerScore = 0;
 	var stopGame = false;
@@ -87,5 +87,5 @@ function game() {
 		console.log("Computer score: " + computerScore);
 	} while (!stopGame);
 
-	declareWinner(winner,playerScore);
+	declareWinner(winner, playerScore);
 }
