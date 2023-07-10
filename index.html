@@ -9,9 +9,27 @@
 	<body>
 		<div class="main">
 			<div class="player-options">
-				<button value="rock" class="btn-selection">Rock</button>
-				<button value="paper" class="btn-selection">Paper</button>
-				<button value="scissors" class="btn-selection">Scissors</button>
+				<button
+					value="rock"
+					class="btn-selection"
+					onclick="playRound(this.value)"
+				>
+					Rock
+				</button>
+				<button
+					value="paper"
+					class="btn-selection"
+					onclick="playRound(this.value)"
+				>
+					Paper
+				</button>
+				<button
+					value="scissors"
+					class="btn-selection"
+					onclick="playRound(this.value)"
+				>
+					Scissors
+				</button>
 			</div>
 			<div class="score-display">
 				<div class="player-score">
