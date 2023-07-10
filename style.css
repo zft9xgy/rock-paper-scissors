@@ -12,6 +12,11 @@
 .score-display {
 }
 
+#winner {
+	padding: 20px;
+	margin: 20px;
+}
+
 .btn-selection {
 	background-color: black;
 	padding: 20px 50px;
@@ -21,4 +26,5 @@
 	border: 0px;
 	margin: 20px;
 	cursor: pointer;
+	text-align: center;
 }

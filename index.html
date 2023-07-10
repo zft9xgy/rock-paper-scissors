@@ -9,36 +9,22 @@
 	<body>
 		<div class="main">
 			<div class="player-options">
-				<button
-					value="rock"
-					class="btn-selection"
-					onclick="playRound(this.value)"
-				>
-					Rock
-				</button>
-				<button
-					value="paper"
-					class="btn-selection"
-					onclick="playRound(this.value)"
-				>
-					Paper
-				</button>
-				<button
-					value="scissors"
-					class="btn-selection"
-					onclick="playRound(this.value)"
-				>
-					Scissors
-				</button>
+				<button value="rock" class="btn-selection">Rock</button>
+				<button value="paper" class="btn-selection">Paper</button>
+				<button value="scissors" class="btn-selection">Scissors</button>
 			</div>
 			<div class="score-display">
-				<div class="player-score">
-					<p>Your score:</p>
+				<div id="player-score">
+					<h3>Your score: 0</h3>
 				</div>
-				<div class="computer-score">
-					<p>Computer score:</p>
+				<div id="computer-score">
+					<h3>Computer score: 0</h3>
 				</div>
+				<div id="winner"></div>
 			</div>
+			<button id="start-game" onclick="startGame()">
+				Start game / Reset game
+			</button>
 		</div>
 
 		<script src="./script.js" type="text/javascript"></script>
